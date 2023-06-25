@@ -1,0 +1,91 @@
+@import "@/styles/variables.scss";
+@import "@/styles/mixin.scss";
+@import "@/styles/typography.scss";
+
+.BackDrop {
+  position: fixed;
+  z-index: $z-index-modal-backdrop;
+  top: 0;
+  left: 0;
+  width: 110vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.Open {
+  display: block;
+}
+
+.Closed {
+  display: none;
+}
+
+.hamburgerMenu {
+  display: none;
+
+  @include tabletQuery {
+    display: block;
+  }
+}
+
+.hamburger {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  z-index: $z-index-close-button;
+
+  .line {
+    width: 100%;
+    height: 2px;
+    background-color: $light_black;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  &.menuOpen .line:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+  }
+
+  &.menuOpen .line:nth-child(2) {
+    opacity: 0;
+  }
+
+  &.menuOpen .line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+}
+
+.showMenu {
+  transform: translateX(0%) !important;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 60%;
+  max-width: 300px;
+  background-color: $white;
+  z-index: $z-index-modal;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  padding-top: 80px;
+
+  .navOption {
+    padding: 15px;
+    @include P2_Heavy();
+    width: 100%;
+
+    &:hover {
+      border: none;
+    }
+  }
+}

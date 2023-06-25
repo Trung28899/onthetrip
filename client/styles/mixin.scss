@@ -1,0 +1,55 @@
+@import "./colors.scss";
+@import "@/styles/variables.scss";
+
+@mixin mobileQuery() {
+  @media screen and (max-width: 600px) {
+    @content;
+  }
+}
+
+@mixin tabletQuery() {
+  @media screen and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin backGroundColor() {
+  background: $blue;
+}
+
+@mixin pageContainer() {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  height: fit-content;
+}
+
+@mixin shiningTitle($color1, $color2) {
+  background: linear-gradient(-45deg, $color1, $color2);
+  background-size: 300% 300%;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  animation: shine 3s ease-in infinite;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 100% 100%;
+  }
+
+  25% {
+    background-position: 100% 100%;
+  }
+
+  50% {
+    background-position: 0% 0%;
+  }
+
+  75% {
+    background-position: 100% 100%;
+  }
+
+  100% {
+    background-position: 100% 100%;
+  }
+}

@@ -1,0 +1,37 @@
+@import "@/styles/typography.scss";
+@import "@/styles/colors.scss";
+@import "@/styles/mixin.scss";
+
+.navBarOption {
+  @include P3_Medium();
+  line-height: 24px;
+  cursor: pointer;
+  margin: 0px;
+  display: flex;
+  align-items: center;
+  color: white;
+
+  .icon {
+    width: auto;
+    height: 20px;
+    object-fit: contain;
+    padding: 2px 5px;
+  }
+
+  &:hover {
+    border-bottom: 2px solid $navy_blue;
+  }
+}
+
+.black {
+  color: black;
+}
+
+.active {
+  border-bottom: 2px solid $navy_blue;
+
+  @include tabletQuery {
+    border-bottom: none;
+    background-color: $light_grey;
+  }
+}

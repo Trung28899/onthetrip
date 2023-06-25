@@ -1,0 +1,25 @@
+@import "@/styles/colors.scss";
+@import "@/styles/typography.scss";
+
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 16px 40px;
+	margin-top: 5vh;
+
+	.title {
+		color: $gray_55;
+		@include P2_Heavy();
+		padding: 12px 0px;
+		&.italic {
+			font-style: italic;
+		}
+	}
+
+	.content {
+		@include P1_Medium_Oblique();
+		color: $gray_55;
+	}
+}

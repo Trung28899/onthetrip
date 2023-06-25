@@ -1,0 +1,2 @@
+### Get trip from search query
+GET http://localhost:8080/plan-trip?searchTerm='trip to Hanoi, Vietnam in 5 days'

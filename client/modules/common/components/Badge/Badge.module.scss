@@ -1,0 +1,32 @@
+@import "@/styles/colors.scss";
+@import "@/styles/typography.scss";
+
+.badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: 10px 12px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  @include P2_Medium();
+
+  &:hover {
+    opacity: 0.75;
+  }
+}
+
+.original {
+  background-color: $light_grey;
+  color: black;
+}
+
+.purple {
+  background-color: $light_purple;
+  color: $purple;
+}
+
+.closeIcon {
+  margin-left: 10px;
+}

@@ -1,0 +1,57 @@
+@import "@/styles/colors.scss";
+@import "@/styles/typography.scss";
+
+.container {
+	position: relative;
+}
+
+.containerHide {
+	display: none !important;
+}
+
+.paginationContainer {
+	position: relative;
+	display: flex;
+	margin: 0px;
+
+	a {
+		color: black;
+		text-decoration: none;
+		@include P2_Book();
+	}
+
+	.items {
+		margin-bottom: 1rem;
+	}
+
+	.pageLink {
+		border: 1px solid white;
+		padding: 4px;
+	}
+
+	.pageItem {
+		border: 1px solid white;
+		padding: 4px;
+		list-style-type: none !important;
+		cursor: pointer;
+	}
+
+	.pageItem:hover {
+		opacity: 0.6;
+	}
+
+	.activePageLink {
+		border: 1px solid $primary_navy_blue;
+		border-radius: 6px;
+	}
+
+	.activePageLink > a {
+		color: $primary_navy_blue;
+	}
+
+	.disabled {
+		a {
+			color: $application_background;
+		}
+	}
+}

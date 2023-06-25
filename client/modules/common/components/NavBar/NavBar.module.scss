@@ -1,0 +1,39 @@
+@import "@/styles/typography.scss";
+@import "@/styles/colors.scss";
+@import "@/styles/mixin.scss";
+
+.container {
+  position: relative;
+  display: flex;
+  padding: 20px 100px;
+  align-items: center;
+  justify-content: space-between;
+
+  @include tabletQuery {
+    padding: 20px 30px;
+  }
+
+  .logo {
+    width: auto;
+    height: 40px;
+    object-fit: contain;
+  }
+
+  .optionContainer {
+    display: flex;
+    justify-content: flex-end;
+    width: fit-content;
+    gap: 0px 50px;
+    @include tabletQuery {
+      display: none;
+    }
+  }
+
+  .hamburgerMenu {
+    display: none;
+    @include tabletQuery {
+      display: block;
+      margin-bottom: 5px;
+    }
+  }
+}

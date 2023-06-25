@@ -1,0 +1,42 @@
+.searchBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.input {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease;
+}
+
+.input:hover,
+.input:focus {
+  border-color: #007bff;
+}
+
+.button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+}

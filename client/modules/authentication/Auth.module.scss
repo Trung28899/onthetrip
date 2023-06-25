@@ -1,0 +1,6 @@
+@import "@/styles/mixin.scss";
+
+.container {
+  @include backGroundColor();
+  @include pageContainer();
+}

@@ -1,0 +1,52 @@
+@import "@/styles/colors.scss";
+@import "@/styles/typography.scss";
+
+.textareaContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 6px;
+  padding: 12px 0px;
+
+  .label {
+    @include P3_Heavy();
+    margin-bottom: 10px;
+  }
+
+  .textarea {
+    border: none;
+    resize: none;
+    flex: 1;
+    font-size: inherit;
+    padding: 12px;
+    border-radius: 6px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .purple {
+    background-color: $purple;
+    color: #ffffff !important;
+
+    &::placeholder {
+      color: #ffffff;
+    }
+  }
+
+  .medium {
+    @include P4_Medium();
+  }
+
+  .large {
+    @include H2_Bold();
+  }
+
+  .errorText {
+    position: relative;
+    color: $danger;
+    margin-top: 10px;
+    @include P2_Medium();
+  }
+}

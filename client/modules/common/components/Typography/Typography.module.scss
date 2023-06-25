@@ -1,0 +1,13 @@
+@import "@/styles/typography.scss";
+
+.heading {
+  @include H3_Bold();
+}
+
+.subheading {
+  @include P4_Medium();
+}
+
+.body {
+  @include P2_Medium();
+}

@@ -1,0 +1,42 @@
+@import "@/styles/variables.scss";
+
+.BackDrop {
+  position: fixed;
+  z-index: $z-index-modal-backdrop;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.container {
+  position: fixed;
+  inset: 0;
+  overflow: auto;
+  outline: 0;
+  z-index: $z-index-modal;
+}
+
+.Modal {
+  position: relative;
+  z-index: $z-index-modal;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  background-color: white;
+  text-align: center;
+  box-sizing: border-box;
+  margin: 0 auto;
+  top: 5vh;
+  width: 80vw;
+  height: 85vh;
+  transition: all 0.5s linear;
+}
+
+.Open {
+  display: block;
+}
+
+.Closed {
+  display: none;
+}

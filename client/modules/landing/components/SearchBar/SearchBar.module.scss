@@ -1,0 +1,92 @@
+@import "@/styles/colors.scss";
+
+.container {
+  position: relative;
+  margin: auto;
+  margin-top: 60px;
+
+  .search {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 70px;
+    height: 70px;
+    background: $blue;
+    border-radius: 50%;
+    transition: all 1s;
+    z-index: 4;
+    box-shadow: 0 0 10px 0 $light_black;
+    cursor: pointer;
+
+    right: -450px;
+    background: #151515;
+    z-index: 6;
+
+    .searchImage {
+      position: absolute;
+      top: 22.5px;
+      left: 22.5px;
+      color: white;
+    }
+  }
+
+  input {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    outline: none;
+    border: none;
+    background: white;
+    color: black;
+    padding: 0 80px 0 20px;
+    border-radius: 30px;
+    box-shadow: 0 0 10px 0 $dark_blue, 0 10px 10px 0 $light_black;
+    transition: all 1s;
+    opacity: 0;
+    z-index: 5;
+    font-weight: bolder;
+    letter-spacing: 0.1em;
+    width: 500px;
+    opacity: 1;
+
+    &::placeholder {
+      color: black;
+      opacity: 0.5;
+      font-weight: bolder;
+    }
+
+    // &:focus {
+    //   width: 300px;
+    //   opacity: 1;
+    //   cursor: text;
+    // }
+    // &:focus ~ .search {
+    //   right: -250px;
+    //   background: #151515;
+    //   z-index: 6;
+    //   &::before {
+    //     top: 0;
+    //     left: 0;
+    //     width: 25px;
+    //   }
+    //   &::after {
+    //     top: 0;
+    //     left: 0;
+    //     width: 25px;
+    //     height: 2px;
+    //     border: none;
+    //     background: white;
+    //     border-radius: 0%;
+    //     transform: rotate(-45deg);
+    //   }
+    // }
+  }
+}

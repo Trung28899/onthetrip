@@ -1,0 +1,43 @@
+@import "@/styles/colors.scss";
+@import "@/styles/typography.scss";
+
+.container {
+  margin: 0 auto;
+  margin-top: 0px;
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  tr th {
+    @include P2_Heavy();
+    padding: 12px;
+    text-align: left;
+    background-color: $gray_01;
+  }
+
+  th {
+    border-left: 0.1px solid $white;
+  }
+
+  tr td {
+    text-align: left;
+  }
+
+  td {
+    @include P2_Book();
+    padding: 12px;
+  }
+
+  tbody {
+    tr {
+      border-bottom: 1px solid $application_background;
+    }
+  }
+
+  .paginationContainer {
+    justify-content: flex-end;
+    display: flex;
+  }
+}
