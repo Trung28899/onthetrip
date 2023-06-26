@@ -1,4 +1,4 @@
-type TripTableObject = {
+export type TripTableObject = {
   time: string;
   activity: string;
   comment: string;

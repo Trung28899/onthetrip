@@ -3,6 +3,7 @@
 .container {
   @include backGroundColor();
   @include pageContainer();
+  padding-bottom: 150px;
 
   .titleContainer {
     position: relative;
@@ -29,5 +30,28 @@
     position: relative;
     width: 500px;
     margin: 0px auto;
+  }
+
+  .tableContainer {
+    position: relative;
+    background-color: white;
+    width: 80vw;
+    margin: 0px auto;
+    margin-top: 150px;
+    padding: 10px 20px;
+
+    border-radius: 20px;
+    overflow: hidden;
+
+    .dayHeading {
+      margin-bottom: 15px;
+      margin-left: 10px;
+    }
+
+    .dayContainer {
+      margin-bottom: 15px;
+      border-radius: 20px;
+      overflow: hidden;
+    }
   }
 }
