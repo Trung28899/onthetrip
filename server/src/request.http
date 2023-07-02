@@ -1,2 +1,2 @@
 ### Get trip from search query
-GET http://localhost:8080/plan-trip?searchTerm='trip to Hanoi, Vietnam in 5 days'
+GET http://localhost:8080/plan-trip?searchTerm='a trip to Montreal, Canada for 5 days'

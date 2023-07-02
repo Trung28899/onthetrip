@@ -4,75 +4,52 @@ export type TripTableObject = {
   comment: string;
 };
 
-const defaultHolder: TripTableObject = {
-  time: '',
-  activity: '',
-  comment: '',
-};
-
-function splitString(input: string): string[] {
-  const split = input.trim().split('|');
-  return split.slice(1, split.length - 1).map((str) => str.trim());
+interface TripDataType1 {
+  trip: {
+    day: string;
+    timeline?: TripTableObject[];
+    activities?: TripTableObject[];
+    schedule?: TripTableObject[];
+  }[];
 }
 
-export function getDayToDayTableObject(
-  inputArray: string[],
-): TripTableObject[][] {
+interface TripDataType2 extends TripTableObject {
+  day?: string;
+}
+
+function processDataWithTrip(objectData: TripDataType1) {
+  const { trip: trips } = objectData;
   const tripTable: TripTableObject[][] = [];
-  let tripTableHolder: TripTableObject[] = [];
-  let objectTableHolder = defaultHolder;
 
-  for (const item of inputArray) {
-    if (
-      item.toLowerCase().includes('activity') &&
-      (objectTableHolder.time || objectTableHolder.activity)
-    ) {
-      objectTableHolder = defaultHolder;
-      tripTableHolder = [];
-      tripTable.push(tripTableHolder);
-    } else if (item.toLowerCase().includes('---')) {
-      continue;
-    } else {
-      const [time, activity, comment] = splitString(item);
-      objectTableHolder = { time, activity, comment };
-      tripTableHolder.push(objectTableHolder);
-    }
+  for (const trip of trips) {
+    tripTable.push(trip.timeline || trip.activities || trip.schedule);
   }
-
-  tripTable.push(tripTableHolder);
 
   return tripTable;
 }
 
-export function separateTables(inputString: string): TripTableObject[][] {
-  const tables: string[] = [];
-  const regex = /\|.*\|.*\|.*\|/g;
+function processDataWithoutTrip(objectData: TripDataType2[]) {
+  const uniqueDays = new Set<string>();
+  const tripTable: TripTableObject[][] = [];
 
-  let match: RegExpExecArray | null;
+  for (const trip of objectData) {
+    uniqueDays.add(trip.day);
+  }
+  const days = Array.from(uniqueDays);
 
-  while ((match = regex.exec(inputString)) !== null) {
-    tables.push(`${match[0].trim()}\n`);
+  for (const day of days) {
+    tripTable.push(objectData.filter((trip) => trip.day === day));
   }
 
-  return getDayToDayTableObject(tables);
+  return tripTable;
 }
 
-/*
+export function getTableData(inputString: string) {
+  const objectData = JSON.parse(inputString);
 
-export function getDayToDayTableString(inputArray: string[]): string[] {
-  const activityArray: string[] = [];
-  let tableStringHolder: string = '';
-
-  for (const item of inputArray) {
-    if (item.toLowerCase().includes('activity')) {
-      activityArray.push(tableStringHolder);
-      tableStringHolder = '' + item + '\n';
-    } else {
-      tableStringHolder += item + '\n';
-    }
+  if (objectData.trip) {
+    return processDataWithTrip(objectData);
   }
 
-  return activityArray;
+  return processDataWithoutTrip(objectData);
 }
-
-*/

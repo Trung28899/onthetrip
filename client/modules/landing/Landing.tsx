@@ -29,6 +29,7 @@ function Landing() {
 
   const fetchTripData = async () => {
     startLoading();
+    setData([]);
     const result = await getTripBySearchTerm(searchTerm);
     setData(result);
     endLoading();
@@ -65,7 +66,7 @@ function Landing() {
         <div className={classes.tableContainer}>
           {data.map((day, index) => {
             return (
-              <div key={day.length + index} className={classes.dayContainer}>
+              <div key={day[0].activity} className={classes.dayContainer}>
                 <Typography variant="subheading" className={classes.dayHeading}>
                   Day {index + 1}
                 </Typography>

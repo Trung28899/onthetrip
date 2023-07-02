@@ -11,7 +11,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
       <Head>
-        <title>Welcome to APRA | APRA</title>
+        <title>AI Trip Planner</title>
       </Head>
       <Spinner />
       <ToastContainer />
