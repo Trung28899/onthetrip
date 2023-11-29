@@ -34,6 +34,7 @@ function Landing() {
     setData(result);
     endLoading();
   };
+
   return (
     <div className={classes.container}>
       <div className={classes.titleContainer}>

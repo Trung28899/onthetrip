@@ -1,15 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { config } from 'dotenv';
-import { Configuration, OpenAIApi } from 'openai';
-import { getTableData } from './utils/string-helper';
 
 config();
-
-const openai = new OpenAIApi(
-  new Configuration({
-    apiKey: process.env.API_KEY,
-  }),
-);
 
 @Injectable()
 export class PlanTripService {
@@ -19,21 +11,11 @@ export class PlanTripService {
     console.log('Loading...');
 
     try {
-      const result = await openai.createChatCompletion({
-        model: 'gpt-3.5-turbo-16k',
-        messages: [
-          {
-            role: 'system',
-            content: query,
-          },
-        ],
-      });
-
       console.log('Completed !!');
-
-      return { data: getTableData(result.data.choices[0].message.content) };
+      // return { data: getTableData(result.data.choices[0].message.content) };
+      return { data: query };
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       throw new NotFoundException('Trip Not Found! Please try again');
     }
   }
